@@ -1,7 +1,4 @@
-# ARMEmulator
-A simple Java ARM emulator
-
----
+# ARM Emulator
 
 Currently supports the following instructions: 
 
