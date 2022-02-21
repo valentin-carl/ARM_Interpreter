@@ -5,11 +5,11 @@ public class Register {
 
     // register
     static Register[] registers = Register.INIT();
-    static boolean[] usedFlags = new boolean[13]; // TODO
 
     // attributes
     int registerID = Register.countRegs++;
     int value;
+    boolean used = false;
 
     // constructor for different initial value
     public Register (int value) {
@@ -62,5 +62,6 @@ class StatusRegister extends Register {
 
     public void setStatus (boolean b) {
         this.value = b ? 1 : 0; // status == true => this.value == 1, staus == false => this.value = 0
+        //System.out.println("StatusRegister was set to " + b);
     }
 }
