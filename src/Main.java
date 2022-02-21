@@ -33,5 +33,8 @@ public class Main {
 
         // print end states of registers
         Programme.getInstance().printRegisters();
+
+        // print Status Register
+        System.out.println("StatusRegister = " + StatusRegister.getInstance().getStatus());
     }
 }
