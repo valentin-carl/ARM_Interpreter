@@ -8,7 +8,7 @@ This is a simple Java programme to simulate ARM Assembly programmes. It has 13 r
 
 `STR` and `LDR` are yet to be implemented (need to add memory...)
 
-After executing each instruction of the ARM programme, it prints the registers on the console, which were used at some point in the programme (the status register will always be printed; it is *false* by default).
+After executing all instructions of the ARM programme, it prints the registers on the console, which were used at some point in the programme (the status register will always be printed; it is *false* by default).
 
 
 
