@@ -12,6 +12,8 @@ Currently supports the following instructions:
 - `BEQ`
 - `BNE`
 
+`STR` and `LDR` are yet to be implemented (need to add memory...)
+
 ---
 
 **How to use it?**
