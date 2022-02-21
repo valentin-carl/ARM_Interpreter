@@ -6,15 +6,15 @@ This is a simple Java programme to simulate ARM Assembly programmes. It has 13 r
 
 `MOV`, `ADD`, `SUB`, `MUL`, `DIV`, `B`, `CMP`, `BEQ`, and `BNE`.
 
-`STR` and `LDR` are yet to be implemented (need to add memory...)
+`STR` and `LDR` are yet to be implemented (need to add memory...).
 
-After executing all instructions of the ARM programme, it prints the registers on the console, which were used at some point in the programme (the status register will always be printed; it is *false* by default).
+After executing all instructions of the ARM programme, it prints the registers on the console that were used at some point in the programme (the status register will always be printed; it is *false* by default).
 
 
 
 ### User's guide
 
-Write your assembler code into the `assembler.txt` file an run the `Main.java` class. (This repository includes a simple programme in the `assembler.txt`, simply replace the content of that file.) Note: the `.txt` file has to be in the same folder as the Java project (or change the `FILENAME` variable in the `IOHelper.java` class...)
+Write your assembler code into the `assembler.txt` file and run the `Main.java` class. (This repository includes a simple programme in the `assembler.txt` file, simply replace the content of that file.) Note: the `.txt` file has to be in the same folder as the Java project (or change the `FILENAME` variable in the `IOHelper.java` class...).
 
 
 
