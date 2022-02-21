@@ -1,34 +1,32 @@
 # ARM Emulator
 
-Currently supports the following instructions: 
+### Overview
 
-- `MOV`
-- `ADD`
-- `SUB`
-- `MUL`
-- `DIV`
-- `B`
-- `CMP`
-- `BEQ`
-- `BNE`
+This is a simple Java programme to simulate ARM Assembly programmes. It has 13 registers (r0 – r12) and a status register that contains *true* or *false* after `CMP` was called. It currently supports the following instructions:
+
+`MOV`, `ADD`, `SUB`, `MUL`, `DIV`, `B`, `CMP`, `BEQ`, and `BNE`.
 
 `STR` and `LDR` are yet to be implemented (need to add memory...)
 
----
+After executing each instruction of the ARM programme, it prints the registers on the console, which were used at some point in the programme (the status register will always be printed; it is *false* by default).
 
-**How to use it?**
 
-Write your assembler code into the `assembler.txt` file an run the `Main.java` class.
 
----
+### User's guide
 
-**Syntax**
+Write your assembler code into the `assembler.txt` file an run the `Main.java` class. (This repository includes a simple programme in the `assembler.txt`, simply replace the content of that file.) Note: the `.txt` file has to be in the same folder as the Java project (or change the `FILENAME` variable in the `IOHelper.java` class...)
 
-*LineNo*: *InstructionType*: *Arguments*;
 
----
 
-**Sample Programme**
+### Syntax
+
+Important: the line number has to be in decimal, **not hexadecimal**! After the line number, there needs to be a colon; as is the case after the instruction. The instruction has to be in all caps. Seperate each argument by a comma and end each line with a semicolon. To load, add, or subtract integers instead of register values, add a *#* before the number. Do not add a *#* before the line in jump instructions (`B`, `BEQ`, and `BNE`).
+
+> *LineNo*: *InstructionType*: *Arguments*;
+
+
+
+### Sample programme
 
 ~~~Assembly
 400: MOV: r0, #0;
