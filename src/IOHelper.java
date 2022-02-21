@@ -89,8 +89,17 @@ public class IOHelper {
             // extract instruction arguments
             int lineNo = Integer.parseInt(lineSplit[0].substring(0, lineSplit[0].length()-1));              // gets the line number of the instruction
             INSTRUCTION_TYPE type = IOHelper.getType(lineSplit[1].substring(0, lineSplit[1].length()-1));   // gets instruction type
-            int targetID = Integer.parseInt(lineSplit[2].substring(1, lineSplit[2].length()-1));            // gets target register id
-            Register target = Register.registers[targetID];                                                 // gets reference to target register object
+            //int targetID = Integer.parseInt(lineSplit[2].substring(1, lineSplit[2].length()-1));            // gets target register id
+            int targetID;
+            Register target;
+            if (type != INSTRUCTION_TYPE.B && type != INSTRUCTION_TYPE.BEQ && type != INSTRUCTION_TYPE.BNE) {
+                targetID = Integer.parseInt(lineSplit[2].substring(1, lineSplit[2].length()-1));
+                target = Register.registers[targetID];
+            } else {
+                target = null;
+            }
+
+            //Register target = Register.registers[targetID];                                                 // gets reference to target register object
 
             // generate Instruction object
             // MOV, ADD, SUB, MUL, DIV, B, CMP, BEQ, BNE;
