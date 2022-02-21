@@ -5,6 +5,7 @@ public abstract class Instruction {
     Register target;
     INSTRUCTION_TYPE type;
 
+    // methods
     public abstract void execute();
 }
 
@@ -16,7 +17,7 @@ class MovInstruction extends Instruction {
     // load constant
     public MovInstruction (int lineNo, Register target, int value) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.MOV;
         this.loadsConstant = true;
         this.from = value;
@@ -25,10 +26,10 @@ class MovInstruction extends Instruction {
     // copy value from another register
     public MovInstruction (int lineNo, Register target, Register r) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.MOV;
         this.loadsConstant = false;
-        this.from = r;
+        this.from = r; ((Register) this.from).used = true;
     }
 
     @Override
@@ -47,20 +48,20 @@ class AddInstruction extends Instruction {
     // Register + Register
     public AddInstruction (int lineNo, Register target, Register summand_1, Register summand_2) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.ADD;
         this.twoRegs = true;
-        this.summand_1 = summand_1;
-        this.summand_2 = summand_2;
+        this.summand_1 = summand_1; this.summand_1.used = true;
+        this.summand_2 = summand_2; ((Register) this.summand_2).used = true;
     }
 
     // Register + Immediate
     public AddInstruction (int lineNo, Register target, Register summand_1, int summand_2) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.ADD;
         this.twoRegs = false;
-        this.summand_1 = summand_1;
+        this.summand_1 = summand_1; this.summand_1.used = true;
         this.summand_2 = summand_2;
     }
 
@@ -82,20 +83,20 @@ class SubInstruction extends Instruction {
     // Register - Register
     public SubInstruction (int lineNo, Register target, Register summand_1, Register summand_2) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.SUB;
         this.twoRegs = true;
-        this.summand_1 = summand_1;
-        this.summand_2 = summand_2;
+        this.summand_1 = summand_1; this.summand_1.used = true;
+        this.summand_2 = summand_2; ((Register) this.summand_2).used = true;
     }
 
     // Register - Immediate
     public SubInstruction (int lineNo, Register target, Register summand_1, int summand_2) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.SUB;
         this.twoRegs = false;
-        this.summand_1 = summand_1;
+        this.summand_1 = summand_1; this.summand_1.used = true;
         this.summand_2 = summand_2;
     }
 
@@ -115,10 +116,10 @@ class MulInstruction extends Instruction {
 
     public MulInstruction (int lineNo, Register target, Register m1, Register m2) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.MUL;
-        this.m1 = m1;
-        this.m2 = m2;
+        this.m1 = m1; this.m1.used = true;
+        this.m2 = m2; this.m2.used = true;
     }
 
     @Override
@@ -135,10 +136,10 @@ class DivInstruction extends Instruction {
 
     public DivInstruction (int lineNo, Register target, Register d1, Register d2) {
         super.lineNo = lineNo;
-        super.target = target;
+        super.target = target; super.target.used = true;
         super.type = INSTRUCTION_TYPE.DIV;
-        this.d1 = d1;
-        this.d2 = d2;
+        this.d1 = d1; this.d1.used = true;
+        this.d2 = d2; this.d1.used = true;
     }
 
     @Override
@@ -161,7 +162,7 @@ class BInstruction extends Instruction {
     @Override
     public void execute() {
         //Programme.getInstance().setProgrammeCounter(this.lineToJumpTo);
-        System.out.println("b instruction to " + this.lineToJumpTo);
+        //System.out.println("b instruction to " + this.lineToJumpTo);
     }
 }
 
@@ -174,8 +175,8 @@ class CmpInstruction extends Instruction {
         super.lineNo = lineNo;
         super.target = StatusRegister.getInstance();
         super.type = INSTRUCTION_TYPE.CMP;
-        this.r1 = r1;
-        this.r2 = r2;
+        this.r1 = r1; this.r1.used = true;
+        this.r2 = r2; this.r2.used = true;
     }
 
     @Override
@@ -197,7 +198,7 @@ class BeqInstruction extends Instruction {
 
     @Override
     public void execute() {
-        System.out.println("beq instruction to " + this.lineToJumpTo);
+        //System.out.println("beq instruction to " + this.lineToJumpTo);
     }
 }
 
@@ -214,7 +215,7 @@ class BneInstruction extends Instruction {
 
     @Override
     public void execute() {
-        System.out.println("bne instruction to " + this.lineToJumpTo);
+        //System.out.println("bne instruction to " + this.lineToJumpTo);
     }
 }
 
