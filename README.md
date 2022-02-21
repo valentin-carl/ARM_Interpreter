@@ -28,6 +28,8 @@ Important: the line number has to be in decimal, **not hexadecimal**! After the 
 
 ### Sample programme
 
+*Input (in the `assembler.txt` file):*
+
 ~~~Assembly
 400: MOV: r0, #0;
 404: MOV: r1, #0;
@@ -40,6 +42,8 @@ Important: the line number has to be in decimal, **not hexadecimal**! After the 
 432: B: 416;
 436: MOV: r2, r0;
 ~~~
+
+*Output:*
 
 > r0 (0)
 > 
