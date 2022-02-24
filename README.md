@@ -1,4 +1,4 @@
-# ARM Emulator
+# ARM Interpreter
 
 ### Overview
 
